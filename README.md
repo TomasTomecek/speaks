@@ -2,6 +2,8 @@
 
 This repository contains slides for my talks. Formerly I used to do one repo per talk.
 
+[Landing page](https://tomastomecek.github.io/speaks/)
+
 
 ## 2019
 
