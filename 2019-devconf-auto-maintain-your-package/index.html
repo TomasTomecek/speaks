@@ -49,44 +49,64 @@ class: center, middle
 
 ---
 
+# Development happens in upstream
+
+* Keep working on the code until it's "good".
+
+--
+
+* CI is a development activity.
+
+* You are responsible for the code to pass tests.
+
+--
+
+* Use the tools you know.
+
+* Benefit from the modern development techniques.
+
+???
+
+* git, github, make, $EDITOR
+* keep working until all is green
+
+---
+
 # Auto-maintain, ehm?
 
 * You take care of the content.
 
---
-
 * We keep dist-git up to date.
-* We never land anything broken.
-
---
 
 * Package is still yours.
-* We only do janitor work in dist-git.
 
----
+--
 
-# Development happens upstream
+* We never land anything broken.
 
-* Keep using the tools you know.
-* Benefit from the modern development techniques.
-* CI is a development activity.
-* Connect upstream and downstream, both ways.
+* You are doing decisions.
 
-???
-
-* git, github, make
-* keep working until all is green
+* Automation helps with mundane tasks.
 
 ---
 
 # Packit
 
 * The hardest thing was the name.
+
+--
+
 * Pull upstream releases automatically.
-* Bring feedback from downstream upstream.
-* Pull requests get (even) downstream check results.
-* Let everybody contribute easily.
-* I can fork a package and deploy.
+
+--
+
+* Bring feedback from downstream to upstream.
+* Pull requests get downstream check results.
+
+--
+
+* Let anyone contribute easily.
+* I can fork a package and deploy it.
 
 TODO: add picture of "Fedora packaging service"
 
@@ -104,14 +124,21 @@ TBD
 
 # Rawhide gating
 
-* We want rawhide stable!
-* Let's gate on core packages!
+* We want rawhide to be stable!
+
+* Let's gate on (at least) core packages.
+
+* Side tags.
+
+* Workflow?
 
 ---
 
 # Thank you!
 
 * <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-twitter-square"></span> [@stefthewalter](https://twitter.com/stefthewalter)
 
 * <span class="fa fa-twitter-square"></span> [@TomasTomec](https://twitter.com/TomasTomec)
 
