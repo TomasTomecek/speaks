@@ -39,8 +39,8 @@
 class: center, middle
 
 # Auto-maintain your package
-## Stef Walter
 ## Tomas Tomecek
+## Stef Walter
 
 ---
 class: center, middle
@@ -48,42 +48,156 @@ class: center, middle
 # Who are Stef and Tomas?
 
 ---
+class: center
 
-# What's & Why's?
+![Self-mantaining](cat-licking-himself.jpg)
 
-* Upstream projects make Linux distributions.
+# A self-maintaining package?
 
-* Sadly, distros don't contribute back to upstream much.
+---
 
-* A new upstream release may easily break something downstream.
+
+class: center, middle
+
+# Why would you want such a thing?
+
+---
+# Why?
+
+* Our upstream projects are integrated together in a Linux distro.
+
+* Upstream has no immediate feedback on how they affect the rest of the distro.
 
 --
 
-* Upstream projects have to make signifficant effort to integrate downstream.
+* We all contribute back upstream individually.
 
-* Let's be clear: packaging software is not *that* exciting.
+* But our distribution itself is invisible in the workflow of those upstream projects.
+
+---
+# Why?
+
+* Upstream projects have to make significant effort to integrate downstream.
+
+* It's tough to for an upstream project to figure out if they broke downstream.
+
+* Let's be clear: packaging software is *not exciting* for everyone.
 
 * Having latest greatest bits integrated with the rest.
   * That's exciting!
 
+--
+
+* Example: systemd is inert by itself
+
 ---
 class: center, middle
 
-# How would you like to know if your new upstream release works in Fedora 29 without doing anything?
+# What if you could immediately know if your upstream change works in Fedora?
+
+---
+class: center, middle
+
+# What if your new upstream release automatically landed in Rawhide?
 
 ---
 
-# Development happens in upstream
+# Mockup
 
-* Keep working on the code until it's "good".
+![The changes are not good.](failed-fedora-packaging-service.png)
+
+---
+
+# Mockup
+
+![Tests passed.](success-fedora-packaging-service.png)
+
+---
+class: center, middle
+
+# What would we need to make this happen?
+
+---
+
+# What would we need?
+
+ * **Spec files**, the lingua franca of how an OS is put together, should be upstream.
 
 --
 
-* CI is a development activity.
-
-* Developers are responsible for the code to pass tests.
+ * **Tests**, the way to check that a project works, should be upstream.
 
 --
+
+ * **Gating** in Rawhide to not let changes in that would break other packages.
+
+--
+
+ * **Automated packaging service** to do mundane tasks for an upstream project.
+
+---
+
+# Spec files upstream?
+
+Source-git becomes the focus instead of dist-git
+
+---
+
+# Tests upstream?
+
+ * Many, most? upstream projects have tests.
+ * When used together, they validate our OS is working.
+ * And a standard way to invoke those existing tests.
+
+---
+
+# Gating of Rawhide
+
+* We will make rawhide stable!
+
+* But we need gating to enforce that stability.
+
+* Let's gate on (at least) core packages.
+
+* Everyone can contribute tests.
+
+* Workflow?
+
+---
+
+# Packit: Automated packaging service
+
+* Built out of tools and contianers you can run on your local laptop.
+
+--
+
+* The hardest thing was the name.
+
+--
+
+* Opens pull requests with new upstream releases.
+
+--
+
+* Brings feedback from downstream to upstream.
+
+* Pull requests get downstream check results.
+
+--
+
+* Let anyone contribute easily.
+
+* I can fork a package and deploy it.
+
+???
+
+* Tell upstream their newest release breaks rawhide or doesn't work with X.
+
+* I can test a new upstream feature in Fedora or RHEL.
+
+---
+
+# Benefits:
 
 * You can use the tools you know.
 
@@ -122,65 +236,6 @@ class: center, middle
 * it's gonna be tough to sync the specs
 
 ---
-class: center, middle
-
-![Branching fun](branching.png)
-
----
-
-# Packit
-
-* The hardest thing was the name.
-
---
-
-* Opens pull requests with new upstream releases.
-
---
-
-* Brings feedback from downstream to upstream.
-
-* Pull requests get downstream check results.
-
---
-
-* Let anyone contribute easily.
-
-* I can fork a package and deploy it.
-
-???
-
-* Tell upstream their newest release breaks rawhide or doesn't work with X.
-
-* I can test a new upstream feature in Fedora or RHEL.
-
----
-
-# Mockup
-
-![The changes are not good.](failed-fedora-packaging-service.png)
-
----
-
-# Mockup
-
-![Tests passed.](success-fedora-packaging-service.png)
-
----
-
-# Rawhide gating
-
-* We need rawhide to be stable!
-
-* Let's gate on (at least) core packages.
-
-* Everyone can contribute tests.
-
-* Side tags.
-
-* Workflow?
-
----
 
 # Mockup (forking)
 
@@ -188,9 +243,11 @@ class: center, middle
 
 ---
 
-# Mockup (RHEL integration)
+# To be addressed
 
-![](rhel-integration.png)
+* How do we make distro-wide changes?
+
+* What about people that *love* packaging?
 
 ---
 
@@ -204,9 +261,10 @@ class: center, middle
 
 ---
 
-Real Demo: stretch goal
+Fedora should be the defacto trivial place to try out your upstream work as a package ... and as part of Linux.
 
 ---
+
 
 # Thank you!
 
