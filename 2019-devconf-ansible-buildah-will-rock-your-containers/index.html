@@ -78,7 +78,6 @@ layout: false
     copy:
       src: contrib/entry.sh
       dest: /entry.sh
-    when: test_mode == "no"
   - name: Install the library
     pip:
       name: '{{ project_dir }}'
@@ -94,6 +93,8 @@ layout: false
 
 * Or you can script the build process yourself.
 
+----
+
 ```
 $ buildah bud .
 STEP 1: FROM busybox
@@ -106,7 +107,9 @@ STEP 4: CMD /entrypoint.sh
 
 ---
 
-# How it works together?
+# How they work together?
+
+--
 
  * Ansible connection plugins.
 
@@ -132,7 +135,7 @@ MOUNTPOINT b'/var/lib/containers/storage/overlay/89e0b96a0fa4651a87e7931...
 
 ---
 
-# Let's use it then
+# Let's give it a shot
 
 ```
 $ buildah pull $BASE_IMAGE
@@ -150,6 +153,10 @@ $ buildah commit --cmd '/entrypoint.sh' $CONT_NAME my-fancy-image
 $ buildah rm $(CONT_NAME)
 ```
 
+???
+
+* We use this!
+
 ---
 class: center, middle
 
@@ -159,13 +166,55 @@ class: center, middle
 
 # ansible-bender
 
-* Bends containers.
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/ansible-bender](https://github.com/TomasTomecek/ansible-bender)
+
+* Bends containers. And it's shiny.
+
+--
 
 * Builds as first-class citizens.
 
 * Can move images to registry, file, dockerd...
 
 * Configurable layering and caching.
+
+???
+
+* It's not perfect, still a ton of work ahead.
+
+* rootless + ovl doesn't work
+
+* RFE: define build metadata in a file
+
+---
+
+# Why?
+
+--
+
+* Dockerfiles are a custom file format.
+
+* There is no spec.
+
+* You can only use Dockerfiles to build ~~docker~~ container images.
+
+--
+
+* [There](https://www.youtube.com/watch?v=n9-JTUsAK9Y) were [no improvements](https://www.youtube.com/watch?v=3VZsjv217ow) for years.
+
+--
+
+* Ansible-container project started this.
+
+--
+
+* Build the way you want.
+
+* There are options.
+
+???
+
+* I'm not a docker hater.
 
 ---
 
