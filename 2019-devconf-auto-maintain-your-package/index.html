@@ -81,6 +81,8 @@ class: center, middle
 
 * It's tough to for an upstream project to figure out if they broke downstream.
 
+--
+
 * Let's be clear: packaging software is *not exciting* for everyone.
 
 * Having latest greatest bits integrated with the rest.
@@ -121,15 +123,15 @@ class: center, middle
 
 # What would we need?
 
- * **Spec files**, the lingua franca of how an OS is put together, should be upstream.
+ * **Spec files**, the lingua franca of how our OS is assembled, in the sources.
 
 --
 
- * **Tests**, the way to check that a project works, should be upstream.
+ * **Tests**, the way to check that a project works, in the sources.
 
 --
 
- * **Gating** in Rawhide to not let changes in that would break other packages.
+ * **Gating** in Fedora Rawhide to not allow packages break other packages.
 
 --
 
@@ -141,6 +143,7 @@ class: center, middle
 
 Source-git becomes the focus instead of dist-git
 
+
 ---
 
 # Tests upstream?
@@ -148,6 +151,14 @@ Source-git becomes the focus instead of dist-git
  * Many, most? upstream projects have tests.
  * When used together, they validate our OS is working.
  * And a standard way to invoke those existing tests.
+
+---
+
+![Source git](source-git.png)
+
+---
+
+![Source git as Upstream git](source-git-2.png)
 
 ---
 
@@ -260,8 +271,12 @@ Source-git becomes the focus instead of dist-git
 * Give us use-cases
 
 ---
+class: center, middle
 
-Fedora should be the defacto trivial place to try out your upstream work as a package ... and as part of Linux.
+# Fedora should be the defacto trivial place to use upstream work
+
+--
+# as a packaged part of a complete Linux.
 
 ---
 
