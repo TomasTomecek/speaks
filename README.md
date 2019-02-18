@@ -8,7 +8,7 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 ## 2019
 
 * [DevConf.cz 2019 - Ansible and Buildah will 🎸 your containers](2019-devconf-ansible-buildah-will-rock-your-containers/)
-* [DevConf.cz 2019 - Auto-maintain your package](2019-devconf-auto-maintain-your-package)
+* [DevConf.cz 2019 - Auto-maintain your package](2019-devconf-auto-maintain-your-package) — [recording](https://www.youtube.com/watch?v=KpF27v6K4Oc)
 
 
 ## 2018
