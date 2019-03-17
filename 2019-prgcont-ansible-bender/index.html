@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrgCont - Ansible and Buildah will 🎸 your containers</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3, h4 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { font-size: 1.6em; }
+      .remark-slide-content h1 { font-size: 2.4em; }
+      .remark-slide-content h2 { font-size: 2.0em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content h4 { font-size: 1.2em; }
+      .remark-code { font-size: 0.977em; }
+      .remark-slide-number { font-size: 0.8em; }
+      .remark-slide-content ul { line-height: 1.4em; }
+      .small { font-size: 0.7em; }
+      .columns-3-ul ul { columns: 3; }
+      .left-column {float:left}
+      .right-column {float:right}
+      img { max-width: 100%; }
+      blockquote {
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+    <script src="https://use.fontawesome.com/1a2bc43b60.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Ansible and Buildah will 🎸 your containers
+## Tomas Tomecek
+
+---
+
+# `/who Tomáš Tomeček`
+
+--
+
+* Principal Software Engineer @ Red Hat
+
+* Team lead
+
+* RHEL and Fedora
+
+* Containers, automation and integration
+
+* I ❤ open source
+
+---
+layout: false
+.left-column[
+# What's Ansible?
+* Automation tool.
+
+* Definition language.
+
+* Can provision infrastructure.
+]
+.right-column[
+```
+---
+- hosts: localhost
+  vars:
+    project_dir: /src
+  tasks:
+  - name: Install required packages
+    dnf:
+      name:
+      - git
+      - python3-pytest
+      - python3-flexmock
+  - name: copy entrypoint script
+    copy:
+      src: contrib/entry.sh
+      dest: /entry.sh
+  - name: Install the library
+    pip:
+      name: '{{ project_dir }}'
+```
+]
+
+---
+# What's Buildah?
+
+* Can build container images from dockerfiles.
+
+* Or from scratch.
+
+* Or you can script the build process yourself.
+
+----
+
+```
+$ buildah bud .
+STEP 1: FROM busybox
+STEP 2: RUN ls
+total 16K
+bin dev etc home proc root sys tmp usr var
+STEP 3: COPY ./README.md /
+STEP 4: CMD /entrypoint.sh
+```
+
+---
+
+# How they work together?
+
+--
+
+ * Ansible connection plugins.
+
+```
+$ ansible-playbook -vvvvvv -c buildah ...
+TASK [Gathering Facts] ***************************************************
+<buildah-container> RUN [b'buildah', b'mount', b'--', b'buildah-container']
+MOUNTPOINT b'/var/lib/containers/storage/overlay/89e0b96a0fa4651a87e7931...
+<buildah-container> RUN [b'buildah', b'run', b'--', b'buildah-container', \
+  b'/bin/sh', b'-c', b'( umask 77 && mkdir -p "` echo / tmp/ansible-tmp-\
+  1547462832.3904593-53681476701867 `" && echo ansible-tmp-1547462832...
+<buildah-container> PUT /root/.ansible/tmp/ansible-local-\
+<buildah-container> RUN [b'buildah', b'run', b'--', b'buildah-container', \
+...
+<buildah-container> RUN [b'buildah', b'umount', b'--', b'buildah-container']
+```
+
+???
+
+* Describe a connection plugin
+* List common plugins
+* Describe the output above
+
+---
+
+# Let's give it a shot
+
+```
+$ buildah pull $BASE_IMAGE
+
+$ buildah from --name $CONT_NAME $BASE_IMAGE
+
+$ printf "$CONT_NAME \
+    ansible_connection=buildah \
+    ansible_python_interpreter=/usr/bin/python3" >inventory-container
+
+$ ansible-playbook -i inventory-container -c buildah ./recipe.yaml
+
+$ buildah commit --cmd '/entrypoint.sh' $CONT_NAME my-fancy-image
+
+$ buildah rm $(CONT_NAME)
+```
+
+???
+
+* We use this!
+* Do it for realz
+
+---
+class: center, middle
+
+# Someone could automate that script
+
+---
+
+# ansible-bender
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/ansible-bender](https://github.com/TomasTomecek/ansible-bender)
+
+* Bends containers. And it's shiny.
+
+--
+
+* Ansible playbooks define the container image content.
+
+* Image metadata as Ansible vars.
+
+* Builds as first-class citizens.
+
+* Can move images to registry, file, dockerd...
+
+* Configurable layering and caching.
+
+???
+
+* It's not perfect, still a ton of work ahead.
+
+* rootless + ovl doesn't work
+
+* RFE: define build metadata in a file
+
+---
+
+# Why should you care?
+
+--
+
+* Dockerfiles are a custom file format.
+
+* There is no spec.
+
+* You can only use Dockerfiles to build ~~docker~~ container images.
+
+--
+
+* [There](https://www.youtube.com/watch?v=n9-JTUsAK9Y) were [no improvements](https://www.youtube.com/watch?v=3VZsjv217ow) for years.
+
+--
+
+* Ansible has powerful modules.
+
+* Ansible is built on top of jinja2.
+
+* You can recycle your playbooks and roles.
+
+--
+
+* Build the way you want.
+
+???
+
+* I'm not a docker hater.
+
+---
+
+# Plans
+
+* Work on [0.6.0](https://github.com/TomasTomecek/ansible-bender/milestone/2).
+
+* Move it to Github Ansible organization.
+
+---
+# Plans cont'd
+
+* It may be also be renamed.
+
+![Bender is sad.](sad-bender.jpg)
+
+---
+
+# Thank you!
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/ansible-bender](https://github.com/TomasTomecek/ansible-bender)
+
+* <span class="fa fa-twitter-square"></span> [@TomasTomec](https://twitter.com/TomasTomec)
+
+* <span class="fa fa-globe"></span> [blog.tomecek.net](https://blog.tomecek.net/)
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
