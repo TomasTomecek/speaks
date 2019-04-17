@@ -16,5 +16,20 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 ## 2018
 
-* [OpenAlt - How to be a good developer](https://github.com/TomasTomecek/open-house-2018-talk)
-* [Red Hat Open House - How to be a good developer](https://github.com/TomasTomecek/openalt-2018-talk)
+* [OpenAlt - How to be a good developer](https://github.com/TomasTomecek/openalt-2018-talk)
+* [Red Hat Open House - How to be a good developer](https://github.com/TomasTomecek/open-house-2018-talk)
+
+
+## 2016
+
+* [OpenAlt - How to be a good developer](https://github.com/TomasTomecek/openalt-2016-talk)
+
+
+## 2015
+
+* [OpenAlt - Open Containers Initiative](https://github.com/TomasTomecek/openalt-2015-oci-demo)
+
+
+## 2014
+
+* [OpenAlt - Show me your command line](https://github.com/TomasTomecek/openalt-2014-cli)
