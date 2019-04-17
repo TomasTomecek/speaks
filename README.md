@@ -11,6 +11,7 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 * [DevConf.cz 2019 - Auto-maintain your package](2019-devconf-auto-maintain-your-package) — [recording](https://www.youtube.com/watch?v=KpF27v6K4Oc)
 * [Prague Containers Meetup 2019 - Ansible-bender](2019-prgcont-ansible-bender/)
 * [Red Hat Open School - What is a developer career like?](2019-openschool-what-is-a-dev-career-like/)
+* [Red Hat Open House - What is a developer career like?](2019-open-house-what-is-a-dev-career-like/)
 
 
 ## 2018
