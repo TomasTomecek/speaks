@@ -124,22 +124,73 @@ TODO: add screenshot(s)
 
   2. Build and deploy your upstream project as an RPM for RHEL.
 
-TODO: Intro to RPM packaging?
+---
 
-TODO: Work backwards: show details after we proved the effect.
+# 1st task
+
+    Our goal will be to submit a change for systemd in Fedora 29.
 
 ---
 
-# Intro: Create a PR on systemd source-git.
+## Step 1
 
-TODO
+We'll start by looking at the systemd version we have in Fedora 29:
+
+https://github.com/packit-service/systemd-source-git/tree/f29
+
+TODO: update readme of systemd source-git: make it more user friendly and descriptive
+---
+
+## Step 2
+
+Packit service is hooked into this repository and will build every patch we'll submit here.
 
 ---
 
-# Requirements
+## Step 3
+
+Time to create the pull request!
+
+TODO: what do we change?
+
+---
+
+## Step 4
+
+Now we need wait for the packit service to create an RPM repository with a build of systemd using our change.
+
+Any questions so far?
+
+---
+
+# How did we do this?
   * packit config
   * spec file
   * Discussion: expectations: config file suggestions, web ui?
+
+---
+
+# 2nd task
+
+    Bring your upstream project into Red Hat Enterprise Linux.
+
+---
+
+## Step 1
+
+Let's browse our application.
+
+---
+
+## Step 2
+
+In order to utilize packit service, we need to add a spec file and packit.yaml
+
+---
+
+## Step 3
+
+Build and test in a UBI 7 container.
 
 ---
 
