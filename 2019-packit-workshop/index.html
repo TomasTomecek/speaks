@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Packit Workshop</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3, h4 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { font-size: 1.6em; }
+      .remark-slide-content h1 { font-size: 2.4em; }
+      .remark-slide-content h2 { font-size: 2.0em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content h4 { font-size: 1.2em; }
+      .remark-code { font-size: 0.977em; }
+      .remark-slide-number { font-size: 0.8em; }
+      .remark-slide-content ul { line-height: 1.4em; }
+      .small { font-size: 0.7em; }
+      .columns-3-ul ul { columns: 3; }
+      img { max-width: 100%; }
+      blockquote {
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+    <script src="https://use.fontawesome.com/1a2bc43b60.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+<img src="packit-logo.png" style="width: 33%" />
+
+# Packit Workshop
+
+---
+class: center, middle
+
+![Packit Team](packit-team.png)
+
+---
+
+![Ecosystem](ecosystem.png)
+
+---
+
+![Ecosystem](ecosystem-with-packit.png)
+
+---
+# Packit
+
+* CLI tool
+
+```
+$ dnf install packit
+
+$ packit --help
+```
+
+---
+# Packit (cont'd)
+```
+$ packit status
+
+Dist-git versions:
+f29: 0.4.2
+f30: 0.4.2
+master: 0.4.2
+
+Latest Bodhi updates:
+Update                                         Karma  status
+-------------------------------------------  -------  --------
+packit-0.4.2-1.fc29 python-ogr-0.5.0-1.fc29        2  stable
+packit-0.4.2-1.fc30 python-ogr-0.5.0-1.fc30        3  stable
+packit-0.4.1-1.fc29                                3  stable
+
+Latest Koji builds:
+f29: packit-0.4.2-1.fc29
+f30: packit-0.4.2-1.fc30
+```
+
+---
+# Packit Service
+
+* GitHub app
+
+---
+# Current state (cont'd)
+
+![Packit Service](packit-gh-installation.png)
+
+---
+# Current state (cont'd)
+
+<img src="packit-checks.png" style="width: 66%" />
+
+---
+# Current state (cont'd)
+
+<img src="packit-comment.png" style="width: 66%" />
+
+---
+# Current state (cont'd) https://packit.dev/
+
+<img src="packit-site.png" style="width: 66%" />
+
+---
+# FAQ
+
+* Do I really need to have a spec file in the upstream repo?
+
+--
+
+* Do I need to have your config in the repo?
+
+--
+
+* Are we required to use your workflow?
+
+---
+# What if the upstream devs don't care about Fedora and RPM spec files?
+
+<img src="thesis_images_source-git.svg" style="width: 200%" />
+
+---
+# Future steps
+
+* On-board as many projects as possible.
+
+* Enable building and validating against RHEL.
+
+???
+
+* Meaning: prioritize more generic features
+
+---
+
+# Thanks for coming!
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-github-square"></span> [github.com/packit-service](https://github.com/packit-service)
+
+* <span class="fa fa-globe"></span> [packit.dev](https://packit.dev/)
+
+* <span class="fa fa-envelope"></span> user-cont-team@redhat.com
+
+* <span class="fa fa-envelope"></span> user-cont@redhat.com (internal)
+
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
