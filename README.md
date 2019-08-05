@@ -14,7 +14,8 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 * [Red Hat Open House - What is a developer career like?](2019-open-house-what-is-a-dev-career-like/)
 * [Red Hat Open House - How to be a good developer? II](2019-open-house-how-to-be-a-good-developer-II/)
 * [Red Hat Internship Bootcamp- How to be a good developer? III](2019-interns-bootcamp-how-to-be-a-good-developer-III/)
-* [Packit Workshop](2019-packit-workshop/)
+* [Internal Packit Workshop](2019-packit-workshop/)
+* [Flock 2019 talk - Bring your upstream releases to Fedora Rawhide in one step](2019-packit-flock-talk/)
 
 
 ## 2018
