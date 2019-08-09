@@ -58,6 +58,8 @@ class: center, middle
 
 * CLI tool
 
+* Has python API
+
 ```
 $ dnf install packit
 
@@ -92,6 +94,12 @@ f31: packit-0.5.0-1.fc31
 
 * GitHub app
 
+* Uses packit tool API to do things
+
+* No API (yet)
+
+* No client (yet)
+
 ---
 # Current state (cont'd)
 
@@ -111,6 +119,15 @@ f31: packit-0.5.0-1.fc31
 # Current state (cont'd) https://packit.dev/
 
 <img src="packit-site.png" style="width: 66%" />
+
+---
+class: center, middle
+# So, how did the bet go?
+
+---
+class: center, middle
+# So, how did the bet go?
+![Dominik](dominik-with-beard.png)
 
 ---
 
@@ -157,27 +174,34 @@ jobs:
     dist-git-branch: master
 ```
 
----
+--
 
-# What can you do with packit now?
+* No builds, yet.
 
 ---
+class: center, middle
+
 # FAQ
-
-* Do I really need to have a spec file in the upstream repo?
-
---
-
-* Do I need to have your config in the repo?
-
---
-
-* Are we required to use your workflow?
 
 ---
 # What if the upstream devs don't care about Fedora and RPM spec files?
 
 <img src="thesis_images_source-git.svg" style="width: 200%" />
+
+---
+# Do I really need to have a spec file in the upstream repo?
+
+--
+
+No.
+
+--
+
+```yaml
+actions:
+  post-upstream-clone: >
+    wget https://src.fedoraproject.org/rpms/systemd/raw/master/f/systemd.spec
+```
 
 ---
 class: center, middle
