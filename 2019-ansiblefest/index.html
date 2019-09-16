@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ansible and Buildah can create your container images</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3, h4 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { font-size: 1.6em; }
+      .remark-slide-content h1 { font-size: 2.4em; }
+      .remark-slide-content h2 { font-size: 2.0em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content h4 { font-size: 1.2em; }
+      .remark-code { font-size: 0.977em; }
+      .remark-slide-number { font-size: 0.8em; }
+      .remark-slide-content ul { line-height: 1.4em; }
+      .small { font-size: 0.7em; }
+      .columns-3-ul ul { columns: 3; }
+      .left-column {float:left}
+      .right-column {float:right}
+      img { max-width: 100%; }
+      blockquote {
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+    <script src="https://use.fontawesome.com/1a2bc43b60.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Ansible and Buildah can create your container images
+## Tomas Tomecek
+
+---
+
+# `/who Tomáš Tomeček`
+
+--
+
+* Principal Software Engineer @ Red Hat
+
+* Team lead
+
+* RHEL and Fedora
+
+* Containers, automation and integration
+
+* I ❤ free & open source software
+
+---
+# What's Ansible?
+
+--
+
+* Oh, wait. This is AnsibleFest.
+
+---
+# What's Buildah?
+
+* A tool to build container images.
+
+![Buildah](buildah.png)
+
+---
+# Buildah
+
+* Can build container images from dockerfiles.
+
+```shell
+$ buildah bud .
+STEP 1: FROM busybox
+STEP 2: RUN ls
+total 16K
+bin dev etc home proc root sys tmp usr var
+STEP 3: COPY ./README.md /
+STEP 4: CMD /entrypoint.sh
+```
+
+---
+# Buildah (cont'd)
+
+* Or you can script the build process yourself.
+
+```shell
+# buildah from fedora:30
+fedora-working-container
+
+# export CONTAINER_FS=$(buildah mount)
+
+# cp $FILES $CONTAINER_FS/my-path/
+
+# buildah run fedora-working-container dnf install httpd
+```
+
+---
+# Buildah (cont'd)
+
+* Or from scratch.
+
+```c
+# buildah from scratch
+
+# export CONTAINER_FS=$(buildah mount)
+
+# ls -lha $CONTAINER_FS
+total 0
+drwx------. 2 root root  6 Sep 16 09:08 .
+drwx------. 6 root root 69 Sep 16 09:08 ..
+
+# dnf install --installroot=$CONTAINER_FS systemd bash
+```
+
+---
+class: center, middle
+
+![Theory](bender-diagram.png)
+
+---
+
+# How they work together?
+
+--
+
+ * Ansible connection plugins.
+
+```shell
+$ ansible-playbook -vvvvvv -c buildah ...
+TASK [Gathering Facts] ***************************************************
+<buildah-container> RUN [b'buildah', b'mount', b'--', b'buildah-container']
+MOUNTPOINT b'/var/lib/containers/storage/overlay/89e0b96a0fa4651a87e7931...
+<buildah-container> RUN [b'buildah', b'run', b'--', b'buildah-container', \
+  b'/bin/sh', b'-c', b'( umask 77 && mkdir -p "` echo / tmp/ansible-tmp-\
+  1547462832.3904593-53681476701867 `" && echo ansible-tmp-1547462832...
+<buildah-container> PUT /root/.ansible/tmp/ansible-local-\
+<buildah-container> RUN [b'buildah', b'run', b'--', b'buildah-container', \
+...
+<buildah-container> RUN [b'buildah', b'umount', b'--', b'buildah-container']
+```
+
+???
+
+* Describe a connection plugin
+* List common plugins
+* Describe the output above
+
+---
+
+# Let's give it a shot
+
+```
+$ buildah pull $BASE_IMAGE
+
+$ buildah from --name $CONT_NAME $BASE_IMAGE
+
+$ printf "$CONT_NAME \
+    ansible_connection=buildah \
+    ansible_python_interpreter=/usr/bin/python3" >inventory-container
+
+$ ansible-playbook -i inventory-container -c buildah ./recipe.yaml
+
+$ buildah commit --cmd '/entrypoint.sh' $CONT_NAME my-fancy-image
+
+$ buildah rm $(CONT_NAME)
+```
+
+???
+
+* We use this!
+* Do it for realz
+
+---
+class: center, middle
+
+# Someone could automate that script
+
+---
+
+# ansible-bender
+
+* <span class="fa fa-github-square"></span> [github.com/ansible-community/ansible-bender](https://github.com/ansible-community/ansible-bender)
+
+* Bends containers. And it's shiny.
+
+--
+
+* Ansible playbooks define the container image content.
+
+* Image metadata as Ansible vars.
+
+* Builds as first-class citizens.
+
+* Can move images to registry, file, dockerd...
+
+* Configurable layering and caching.
+
+???
+
+* It's not perfect, still a ton of work ahead.
+
+* rootless + ovl doesn't work
+
+* RFE: define build metadata in a file
+
+---
+
+```yaml
+- name: Demonstration of ansible-bender's functionality
+  hosts: all
+  vars:
+    ansible_bender:
+      base_image: python:3-alpine
+      working_container:
+        volumes:
+          - '{{ playbook_dir }}:/src:Z'
+      target_image:
+        name: my-image
+        working_dir: /src
+        labels:
+          built-by: '{{ ansible_user }}'
+        environment:
+          FILE_TO_PROCESS: README.md
+  tasks:
+  - name: Run a sample command
+    command: 'ls -lha /src'
+  - name: Stat a file
+    stat:
+      path: "{{ lookup('env','FILE_TO_PROCESS') }}"
+```
+
+---
+
+```shell
+$ ansible-bender build playbook.yaml
+PLAY [Demonstration of ansible-bender's functionality] *************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [my-image-20190916-121252774136-cont]
+
+TASK [Run a sample command] ****************************************************
+changed: [my-image-20190916-121252774136-cont]
+
+TASK [Stat a file] *************************************************************
+ok: [my-image-20190916-121252774136-cont]
+
+PLAY RECAP *********************************************************************
+my-image-20190916-121252774136-cont : ok=3    changed=1    unreachable=0    failed=0   
+
+Getting image source signatures
+Copying blob sha256:1bfeebd65323b8ddf5bd6a51cc7097b72788bc982e9ab3280d53d3c613adffa7
+Copying config sha256:f3608dfe38bcd1e1d2c25f354599f6f9a6b71bf3e6c89d16121761caab12b73a
+Writing manifest to image destination
+Storing signatures
+f3608dfe38bcd1e1d2c25f354599f6f9a6b71bf3e6c89d16121761caab12b73a
+Image 'my-image' was built successfully \o/
+```
+
+---
+
+# Why should you care?
+
+--
+
+* Ansible can take care of your container images, not just infra.
+
+* Using Ansible to define an image instead of a bash script.
+
+* You can recycle your playbooks and roles.
+
+--
+
+* Build the way you want.
+
+---
+
+# Future plans
+
+* Add support for podman and docker.
+
+* Builds from scratch.
+
+---
+
+# Thank you!
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-github-square"></span> [github.com/ansible-community/ansible-bender](https://github.com/ansible-community/ansible-bender)
+
+* <span class="fa fa-twitter-square"></span> [@TomasTomec](https://twitter.com/TomasTomec)
+
+* <span class="fa fa-globe"></span> [blog.tomecek.net](https://blog.tomecek.net/)
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
