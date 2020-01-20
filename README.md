@@ -5,6 +5,11 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 [Landing page](https://tomastomecek.github.io/speaks/)
 
 
+## 2020
+
+* [DevConf.cz 2020 - Integrating upstream projects downstream](2020-devconf-integrating-upstream-projects-downstream/)
+
+
 ## 2019
 
 * [DevConf.cz 2019 - Ansible and Buildah will 🎸 your containers](2019-devconf-ansible-buildah-will-rock-your-containers/)

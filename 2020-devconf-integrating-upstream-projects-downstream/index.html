@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ansible and Buildah can create your container images</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3, h4 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { font-size: 1.6em; }
+      .remark-slide-content h1 { font-size: 2.4em; }
+      .remark-slide-content h2 { font-size: 2.0em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content h4 { font-size: 1.2em; }
+      .remark-code { font-size: 0.977em; }
+      .remark-slide-number { font-size: 0.8em; }
+      .remark-slide-content ul { line-height: 1.4em; }
+      .small { font-size: 0.7em; }
+      .columns-3-ul ul { columns: 3; }
+      .left-column {float:left}
+      .right-column {float:right}
+      img { max-width: 100%; }
+      blockquote {
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+    <script src="https://use.fontawesome.com/1a2bc43b60.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Integrating upstream projects downstream
+
+## Tomas Tomecek
+
+---
+class: center, middle
+
+![Logo!](logo-extended.jpg)
+
+???
+
+* a.k.a. the Packit Talk
+
+---
+
+# TODO: the slides with our photos?
+
+---
+
+# `/who Tomáš Tomeček`
+
+.left-column[
+* Principal Software Engineer @ Red Hat
+
+* Tea lead
+
+* Containers, automation and integration
+
+* I ❤ free & open source software
+]
+
+.right-column[
+![Tomas](tomas.jpg)
+]
+
+---
+# Agenda for today
+
+* Intro to the project
+* What we've achieved so far?
+* Any challenges?
+* Future plans
+
+---
+# Intro to the project
+
+* A GitHub app which helps you integrate your upstream project into Fedora OS and CentOS Stream.
+
+* TODO: add a picture
+
+---
+# What we've achieved so far?
+
+* You can enjoy a platform to integrate with Fedora and CentOS Stream.
+
+* Packit will help you with dependency problems while you work on the code.
+
+???
+
+* dep problems - no multi repo deps
+
+---
+# How's the project doing?
+* 7 git repositories, 9 openshift pods, thousands of yaml, 9 people
+
+
+* We release early and deploy often.
+* We've automated our deployment process like mad.
+* We have outages.
+* We're helping people to get on-board of packit train.
+
+
+---
+# How do we develop packit?
+
+--
+
+* Like mad.
+
+--
+
+* Code review & pre-commit.
+* Scrum-ish development process.
+* Staging environment = continuous deployment & monitoring.
+* Different sets of tests.
+
+???
+
+* unit, integration, functional, e2e, requre, x-repo
+
+---
+# Any challenges?
+* Infrastructure is on cluster-fire.
+* Too many requests.
+* Upstream projects use different dev process.
+* RPM spec files are hard.
+* Running a service is not easy.
+  * Security, operation, development
+* User experience
+
+---
+# What's the future?
+* Depends on what you want :)
+* And what our leadership wants :D
+* Complete the Fedora RPM release automation.
+
+---
+# Workshop!
+## Saturday ...
+
+---
+
+# Thank you!
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-github-square"></span> [github.com/packit-service](https://github.com/packit-service)
+
+* <span class="fa fa-twitter-square"></span> [@TomasTomec](https://twitter.com/TomasTomec)
+
+* <span class="fa fa-globe"></span> [packit.dev/](https://packit.dev/)
+
+* <span class="fa fa-globe"></span> [blog.tomecek.net](https://blog.tomecek.net/)
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
