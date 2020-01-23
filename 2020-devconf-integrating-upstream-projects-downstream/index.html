@@ -38,6 +38,8 @@
 
 class: center, middle
 
+<img src="./logo-extended.jpg" width="640">
+
 # Integrating upstream projects downstream
 
 ## Tomas Tomecek
@@ -45,15 +47,9 @@ class: center, middle
 ---
 class: center, middle
 
-![Logo!](logo-extended.jpg)
+# The packit team
 
-???
-
-* a.k.a. the Packit Talk
-
----
-
-# TODO: the slides with our photos?
+<img src="./packit-team.png" width="800">
 
 ---
 
@@ -70,30 +66,40 @@ class: center, middle
 ]
 
 .right-column[
-![Tomas](tomas.jpg)
+<img src="./tomas.jpg" width="320">
 ]
 
 ---
 # Agenda for today
 
 * Intro to the project
+
 * What we've achieved so far?
+
 * Any challenges?
+
 * Future plans
 
 ---
-# Intro to the project
+class: center, middle
+# Packit
 
-* A GitHub app which helps you integrate your upstream project into Fedora OS and CentOS Stream.
+## A GitHub app which helps you integrate your upstream project into Fedora OS and CentOS Stream.
 
-* TODO: add a picture
+---
+class: center, middle
+# Packit (cont'd)
+
+<img src="./packit-january-2020.png" width="640">
 
 ---
 # What we've achieved so far?
 
 * You can enjoy a platform to integrate with Fedora and CentOS Stream.
 
-* Packit will help you with dependency problems while you work on the code.
+* Packit will help you with dependency problems.
+
+* You are getting feedback while working on the code.
 
 ???
 
@@ -101,14 +107,30 @@ class: center, middle
 
 ---
 # How's the project doing?
-* 7 git repositories, 9 openshift pods, thousands of yaml, 9 people
 
+* 7 git repositories
+
+* 9 openshift pods
+
+* 1000s of yaml
+
+* 9 people
+
+* 65 projects on-board
+
+* ~10000 of build and test runs
+
+---
+# How's the project doing? (cont'd)
 
 * We release early and deploy often.
-* We've automated our deployment process like mad.
-* We have outages.
-* We're helping people to get on-board of packit train.
 
+* We've automated our deployment process like mad.
+  * And we have CI/CD!
+
+* We have outages.
+
+* We're helping people to get on-board of packit train.
 
 ---
 # How do we develop packit?
@@ -120,9 +142,13 @@ class: center, middle
 --
 
 * Code review & pre-commit.
+
 * Scrum-ish development process.
+
 * Staging environment = continuous deployment & monitoring.
+
 * Different sets of tests.
+  * Requre: Simplify your Integration&E2E tests (Sunday, 3pm)
 
 ???
 
@@ -130,27 +156,71 @@ class: center, middle
 
 ---
 # Any challenges?
+
+--
+.center[![](nope-nope-nope-5abd1c.jpg)]
+
+---
+# Any challenges?
+
+<span class="center"><img src="laugh.jpg" width="600"></span>
+
+---
+# Any challenges? (cont'd)
+
 * Infrastructure is on cluster-fire.
+
 * Too many requests.
-* Upstream projects use different dev process.
+
+* Upstream projects use different development process.
+
+---
+# Any challenges? (cont'dd)
+
 * RPM spec files are hard.
-* Running a service is not easy.
-  * Security, operation, development
+
+* Running a 24/7 service is not easy.
+  * Security, operation, development, verification, scalability
+  * "No route to host"
+
 * User experience
+
+???
+
+* Parsing RPM spec files...
+
+* Lars wants the lieast amount of feedback, Yarda looks for verbosity.
+
+---
+class: center, middle
+# Integrating upstream code downstream is so much fun!
 
 ---
 # What's the future?
-* Depends on what you want :)
-* And what our leadership wants :D
+
+* ∅ CO₂
+
+--
+
+* You tell us!
+
+* Better user experience.
+
 * Complete the Fedora RPM release automation.
 
 ---
+class: center, middle
 # Workshop!
-## Saturday ...
+## 3:30pm
+## Workshop Room C - C228
 
 ---
+class: center, middle
 
-# Thank you!
+# What the wig?
+
+---
+# Q&A + Thank you for coming!
 
 * <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
 
@@ -160,7 +230,7 @@ class: center, middle
 
 * <span class="fa fa-globe"></span> [packit.dev/](https://packit.dev/)
 
-* <span class="fa fa-globe"></span> [blog.tomecek.net](https://blog.tomecek.net/)
+* <span class="fa fa-globe"></span> [Packit-as-a-Service](https://github.com/marketplace/packit-as-a-service)
 
     </textarea>
     <script src="remark-latest.min.js">
