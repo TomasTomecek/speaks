@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How to be a good developer 0.4.0</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3, h4 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { font-size: 1.6em; }
+      .remark-slide-content h1 { font-size: 2.4em; }
+      .remark-slide-content h2 { font-size: 2.0em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content h4 { font-size: 1.2em; }
+      .remark-code { font-size: 0.977em; }
+      .remark-slide-number { font-size: 0.8em; }
+      .remark-slide-content ul { line-height: 1.4em; }
+      .small { font-size: 0.7em; }
+      .columns-3-ul ul { columns: 3; }
+      .left-column {float:left}
+      .right-column {float:right}
+      img { max-width: 100%; }
+      blockquote {
+        font-style: italic;
+        color: #777;
+      }
+    </style>
+    <script src="https://use.fontawesome.com/1a2bc43b60.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# How to be a good developer 0.4.0
+## Tomas Tomecek
+
+---
+
+# `/who "Tomáš Tomeček"`
+
+.left-column[
+* Principal Software Engineer @ Red Hat
+
+* Team lead of Packit
+
+* Containers, automation and integration
+
+* I ❤ free & open source software
+]
+
+.right-column[
+<img src="./tomas.jpg" width="320">
+]
+
+---
+# Trivia quiz [open source]
+
+--
+
+* What does it mean to fork a project?
+
+--
+
+* Do you know what a PR is?
+
+--
+
+* And how about "an upstream project"?
+
+---
+class: center, middle
+
+# It's all about the technical skills.
+
+---
+class: center, middle
+
+# ~~It's all about the technical skills.~~
+
+---
+
+# Soft skills > hard skills
+
+* Soft skills are hard: you can't learn them easily.
+
+* Can you present your work?
+
+* Collaboration: you can't do everything on your own.
+
+???
+
+* Being a good dev is not just about writing code, it's about presenting
+  yourself and collaborating with others.
+
+---
+
+# `git`
+
+ * Pinnacle of open source software development.
+
+ * Distributed VCS.
+
+ * [Pro Git](https://git-scm.com/book/en/v2)
+
+---
+
+# Trivia quiz [git]
+
+--
+
+ * How do you figure out what's going on in your git repository?
+
+--
+
+ * What's a rebase?
+
+--
+
+ * What does it mean to rebase a pull request?
+
+--
+
+ * Do you know how to split commits?
+
+--
+
+ * What's the difference between git and GitHub?
+
+---
+
+# Tech
+
+ * Your role?
+
+ * \#1 Language
+
+ * Code reviews
+
+ * Security
+
+ * Testing and continuous integration
+
+ * `$EDITOR`
+
+???
+
+* Dev, QE, DevOps, Release Engineer, PM, Scrum Master, Analyst, Data Scientist
+* \#1 lang - getting up blind-drunk at 3am fixing bugs in prod
+* Cross Site Scripting
+* SQL Injection Vulnerability
+* Remote Code Execution
+* Ninja!
+
+---
+class: middle
+
+```
+$ dnf install -y \
+    curl ping bind-utils iputils \
+    buildah podman vagrant origin-clients \
+    ansible git \
+    htop systemd bash dnf rpm \
+    python3
+```
+
+---
+
+# Trivia quiz [dev]
+
+--
+
+* What's the difference between a linux container and a VM?
+
+--
+
+* What tool do you use to query a web server?
+
+--
+
+* `bash -c ":(){ :|: & };:"`, what will happen?
+
+--
+
+* Can you tell me what's "Remote Code Execution"?
+
+--
+
+* "`No route to host`", what may be the cause?
+
+--
+
+* What's `:wqa`?
+
+---
+
+# Open Source
+
+ * Probably the best reference.
+
+ * Do you already have a GitHub account?
+
+ * Dotfiles ([TomasTomecek/dotfiles](https://github.com/TomasTomecek/dotfiles.git))
+   * aliases, shell functions, terminal environment configuration
+
+ * Blog
+
+???
+
+ * do you already have a GH account?
+ * do you already have contributions you are proud of?
+ * linux, open source project, beats any closed source OS
+
+---
+
+# English
+
+ * I strongly advise you to learn English.
+
+ * I advise you to *speak* English.
+
+???
+
+ * Watch TV series in English (English subs if needed).
+ * Read English content.
+ * Write in English.
+ * Play games in English.
+ * Set language on your devices to English.
+
+---
+
+# Last but not least
+
+* Conferences and meetups.
+
+* Defending your thesis.
+
+* Don't expect to learn everything at school.
+
+???
+
+* E.g. to get a senior promote, the technical expertise is probably the less signifficant
+  * And probably the promotion committee doesn't care about your code.
+  * But coding is required to get the right skills, though.
+* No one will call you a good dev if you are working on a useless project or no one knows about you.
+* Be the face of your school project. Lead the project.
+* Not just about writing code, also review PRs, respond to issues, help with testing, ...
+* Deploy the blog first! Write about your experience.
+* Theory in school vs. practical in a real job. Tell own experience.
+  * What's valuable from school? Security, linux/unix/windows labs, math, algorithms, project management.
+* Twitter is good.
+
+---
+# Futurama quote
+
+  **Steve Castle**: Listen, big guy, now that you're my protégé, it's time I cut you in on the secret to success. Any guesses?
+
+  **Fry**: Uh, work really, really hard?
+
+  **Steve Castle**: No.
+
+  **Fry**: Oh, thank God!
+
+  **Steve Castle**: It's all about appearances. That's why it's time to update our company's stodgy image and give it the sleek, dazzling veneer of the 1980's!
+
+---
+class: middle, center
+
+**Tomas**: I'm sorry but you need to work really, really hard.
+
+---
+class: middle
+# The end
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-twitter-square"></span> [@TomasTomec](https://twitter.com/TomasTomec)
+
+* <span class="fa fa-globe"></span> [blog.tomecek.net](https://blog.tomecek.net/)
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
