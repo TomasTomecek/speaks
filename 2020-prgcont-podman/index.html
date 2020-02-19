@@ -12,8 +12,8 @@
 class: center, middle
 
 # Container Tooling by Red Hat
-## Tomas Tomecek
 ## Franta Lachman
+## Tomas Tomecek
 
 ---
 class: center, middle
@@ -45,6 +45,10 @@ class: center, middle
 
 * ~~CRI-O~~
 
+--
+
+* Demos: https://github.com/containers/Demos.git
+
 ---
 # The background tools
 
@@ -70,7 +74,7 @@ class: center, middle
 <img src="./podman--help.png" width="1024">
 
 ---
-# podman (?)
+# podman (T)
 
 * github.com/containers/libpod
 
@@ -79,15 +83,69 @@ class: center, middle
 * The same CLI as docker command
 
 ---
-# Rootless containers (?)
+# Rootless containers (T)
 
+* Credits:
 
+  * https://www.slideshare.net/AkihiroSuda/rootless-containers
 
+--
 
+* Running a container as an unprivileged user
+
+--
+
+* Very tricky to be done on the system level
+
+  * User namespaces (UID mapping), Filesystem, Networking
+
+--
+
+* Demo
 
 ---
-# Podman security features
+# Let's talk security
 
+* Credits:
+
+  * https://devconfcz2020a.sched.com/event/YOo2/the-state-of-container-security
+
+--
+
+* Security is not very popular.
+
+* Security hates user experience (`setenforce 0`).
+
+--
+
+* `podman run --privileged` vs. `podman run --cap-drop`
+
+--
+
+* SELinux blocked most of docker's CVEs
+
+  * breakouts of containers (filesystem based)
+
+---
+
+Oci-seccomp-bpf-hook (?)
+
+---
+# udica
+
+* Credits:
+
+  * https://devconfcz2020a.sched.com/event/YOnA/custom-selinux-container-policies-in-openshift#
+
+--
+
+* Examines container configuration
+
+* Generate SELinux policy
+
+--
+
+Demo: `Demos/security/SELinuxUdica`
 
 ---
 # Features in podman and not in docker (F)
@@ -224,6 +282,24 @@ Enable a listening service for API access to Podman commands.
 
 ---
 # skopeo (T)
+
+* move container images around
+
+* registry, dockerd, containers/storage, a file
+
+* transports
+
+```
+skopeo inspect docker://docker.io/usercont/packit
+{
+    "Name": "docker.io/usercont/packit",
+    "Digest": "sha256:4918b3a8511b7ca913a51d1ea8470c06b8f03e7fe70a2e9ec011e2d49afffa90",
+    "RepoTags": [
+        "latest",
+        "prod"
+    ],
+    "Created": "2020-02-19T15:24:13.408449229Z",
+```
 
 
 ---
