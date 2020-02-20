@@ -67,6 +67,8 @@ class: center, middle
 class: center, middle
 # podman
 
+![](https://github.com/containers/libpod/raw/master/logo/podman-logo.png)
+
 
 ---
 class: center, middle
@@ -76,13 +78,11 @@ class: center, middle
 ---
 # podman (T)
 
-* github.com/containers/libpod
+* [github.com/containers/libpod](https://github.com/containers/libpod)
 
 * "The manager of pods"
 
 * The same CLI as docker command
-
-![](https://github.com/containers/libpod/raw/master/logo/podman-logo.png)
 
 ---
 # Rootless containers (T)
@@ -103,7 +103,7 @@ class: center, middle
 
 --
 
-* Demo
+* Demo `github.com/containers/Demos/security`
 
 ---
 # Let's talk security
@@ -128,35 +128,48 @@ class: center, middle
 
   * breakouts of containers (filesystem based)
 
----
 
-Oci-seccomp-bpf-hook (?)
+---
+# Oci-seccomp-bpf-hook
+
+* Generate a seccomp profile based on live container behaviour.
+
+--
+
+* Also, what is seccomp?
+
+--
+
+* No demo, the tool is not packaged, yet.
+
 
 ---
 # udica
 
-![](https://github.com/containers/udica/raw/master/logo/logo-udica-notext.png)
-
-* Credits:
-
-  * https://devconfcz2020a.sched.com/event/YOnA/custom-selinux-container-policies-in-openshift#
-
---
+.left-column[
+* [Credits](https://devconfcz2020a.sched.com/event/YOnA/custom-selinux-container-policies-in-openshift#)
 
 * Examines container configuration
 
 * Generate SELinux policy
 
---
+* Demo: `Demos/security/SELinuxUdica`
+]
 
-Demo: `Demos/security/SELinuxUdica`
+.right-column[
+![](https://github.com/containers/udica/raw/master/logo/logo-udica-notext.png)
+]
+
 
 ---
 # Features in podman and not in docker (F)
 
 - [upstream table](https://github.com/containers/libpod/blob/master/transfer.md#missing-commands-in-docker)
+
 - UX enhancements
+
 - not-merged proposals for `docker`
+
 - pod manipulation
 
 ---
@@ -223,6 +236,7 @@ Image Layers
 # Features in podman and not in docker IV/VII
 
 * podman mount
+
 * podman umount
 
 ```
@@ -269,58 +283,85 @@ Enable a listening service for API access to Podman commands.
 ---
 # Features in podman and not in docker VII/VII
 
-* podman play
-* podman play kube
-* podman generate
-* podman generate kube
-* podman pod *
+* `podman play`
+
+* `podman play kube`
+
+* `podman generate`
+
+* `podman generate kube`
+
+* `podman pod *`
 
 
 ---
 # podman → k8s (T)
 
+* podman can create definitions based on live containers
 
----
-# buildah (F)
+* `podman generate kube`
 
-* shell-based container builder tool
-* no container runtime deamon needed
-* simple, efficient
+* `podman generate systemd`
 
-![](https://github.com/containers/buildah/raw/master/logos/buildah-logomark_large_transparent-bg.png)
+--
 
----
-# buildah: benefits
-
-* no need for build/install requirements in the final image
-* read/write volumes during the build
-* rootless usage
-  * buildah images available at [quay.io/repository/buildah/stable](https://quay.io/repository/buildah/stable)
-* `buildah build-using-dockerfile`
+* Demo!
 
 
 ---
 # skopeo (T)
 
+.left-column[
 * move container images around
 
 * registry, dockerd, containers/storage, a file
 
 * transports
 
-<img src="https://cdn.rawgit.com/containers/skopeo/master/docs/skopeo.svg" width="250">
-
 ```
 skopeo inspect docker://docker.io/usercont/packit
 {
     "Name": "docker.io/usercont/packit",
-    "Digest": "sha256:4918b3a8511b7ca913a51d1ea8470c06b8f03e7fe70a2e9ec011e2d49afffa90",
+    "Digest": "sha256:4918b3a8511b7ca91...
     "RepoTags": [
         "latest",
         "prod"
     ],
     "Created": "2020-02-19T15:24:13.408449229Z",
 ```
+]
+
+.right-column[
+<img src="https://cdn.rawgit.com/containers/skopeo/master/docs/skopeo.svg" width="250">
+]
+
+
+---
+# buildah (F)
+
+.left-column[
+* shell-based container builder tool
+
+* no container runtime deamon needed
+
+* simple, efficient
+]
+
+.right-column[
+![](https://github.com/containers/buildah/raw/master/logos/buildah-logomark_large_transparent-bg.png)
+]
+
+---
+# buildah: benefits
+
+* no need for build/install requirements in the final image
+
+* read/write volumes during the build
+
+* rootless usage
+  * buildah images available at [quay.io/repository/buildah/stable](https://quay.io/repository/buildah/stable)
+
+* `buildah build-using-dockerfile`
 
 
 ---
@@ -328,24 +369,29 @@ skopeo inspect docker://docker.io/usercont/packit
 
 *Toolbox is a tool that offers a familiar package based environment for developing and debugging software that runs fully unprivileged using Podman.*
 
+.right-column[
 ![](https://raw.githubusercontent.com/containers/toolbox/master/data/logo/toolbox-logo-landscape.svg?sanitize=true)
+]
 
-
+.left-column[
 ```
 [user@hostname ~]$ toolbox create
 Created container: fedora-toolbox-30
 Enter with: toolbox enter
+
 [user@hostname ~]$ toolbox enter
+
 ⬢[user@toolbox ~]$
 ```
+]
 
 
 ---
-# Demos
+# You've seen these demos
 
 * intro (F)
 
-* rootless containers ?
+* rootless containers (T)
 
 * building images (F)
   * basic
@@ -355,7 +401,7 @@ Enter with: toolbox enter
   * basic
   * udica
 
-* from podman to k8s (T)
+* ~~from podman to k8s~~
 
 
 ---
@@ -363,6 +409,10 @@ class: middle
 # The end
 
 * <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-github-square"></span> [github.com/lachmanfrantisek](https://github.com/lachmanfrantisek)
+
+* <span class="fa fa-gitlab-square"></span> [gitlab.com/lachmanfrantisek](https://gitlab.com/lachmanfrantisek)
 
 * <span class="fa fa-github-square"></span> [github.com/containers](https://github.com/containers)
 
