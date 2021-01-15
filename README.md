@@ -7,7 +7,7 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 ## 2021
 * DevConf.cz 2021, TBD
-* [Red Hat Internship Bootcamp- How to be a good developer 0.5.0](2020-how-to-be-a-good-dev-0.5.0/)
+* [Red Hat Internship Bootcamp- How to be a good developer 0.5.0](2021-how-to-be-a-good-dev-0.5.0/)
 
 ## 2020
 
