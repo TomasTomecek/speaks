@@ -5,7 +5,7 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 [Landing page](https://tomastomecek.github.io/speaks/)
 
 
-## 2020
+## 2021
 * DevConf.cz 2021, TBD
 * [Red Hat Internship Bootcamp- How to be a good developer 0.5.0](2020-how-to-be-a-good-dev-0.5.0/)
 
