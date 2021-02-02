@@ -22,6 +22,7 @@ h1, h2, h3, h4 {
 .columns-3-ul ul { columns: 3; }
 .left-column {float:left}
 .right-column {float:right}
+.footer {position: absolute; bottom: 12px; left: 80px}
 img { max-width: 100%; }
 blockquote {
   font-style: italic;
