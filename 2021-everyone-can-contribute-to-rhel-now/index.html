@@ -34,66 +34,21 @@ class: center, middle
 ]
 
 ---
-## How did contributions work for CentOS Linux in the past?
 
---
+class: center, middle
 
-* They mostly didn't.
-
---
-
-* CentOS Linux 8 and earlier is downstream to RHEL.
-  * So all changes need to go through RHEL first.
-
-* Occasionally people would send patches to RHEL Bugzilla.
-  * Sometimes it took years to fix things.
-
-* CentOS-specific changes were not possible.
-  * Except for SIGs.
-
-???
-
-* The main reason being that CentOS Linux is downstream to RHEL.
-
-* And some would never be fixed
+# Let's talk about contributions further
 
 ---
 
 class: center, middle
 
-# CentOS Stream 9 will be different...
+# ...I hope you've seen Brian's presentation
+## This is a follow-up
 
----
+???
 
-# CentOS Stream 9
-
-* Open Source development model.
-
-* Upstream for RHEL 9.
-
-* Will be available to be consumed and for contributions later this year.
-
-* You can look at [Fedora ELN](https://docs.fedoraproject.org/en-US/eln/) in the meantime.
-
-* CVEs and embargoed content will be private.
-
-* Kernel development will be open completely.
-
----
-
-# Continuous Integration & Delivery
-
-* The contribution model is built around rigorous testing.
-
-* Changes proposed to the Stream need to pass all checks!
-
-* RHEL maintainers will use CentOS Stream 9 to develop RHEL 9.
-
-* You can contribute tests if you care how certain features work.
-
-* Continuously available.
-
-* Reporting issues is a contribution as well.
+tell the funny story :D
 
 ---
 
@@ -107,25 +62,19 @@ class: center, middle
 
 * Maintainers will decide what’s getting in.
 
-* [Open a Bugzilla against the CentOS Stream version](https://bugzilla.redhat.com/enter_bug.cgi?product=Red%20Hat%20Enterprise%20Linux%208&version=CentOS%20Stream).
+* [Opening issues is contributing too!](https://bugzilla.redhat.com/enter_bug.cgi?product=Red%20Hat%20Enterprise%20Linux%208&version=CentOS%20Stream)
 
----
-
-# CentOS Stream 8
-
-* Available to be consumed right now!
-
-* RHEL 8 is still the upstream.
-
-* Contributions going through Red Hat Bugzilla still.
-
-* It’s hard to course-correct along the way.
+* Kernel development will be open too!
 
 ---
 
 # Two ways to contribute code (dist-git)
 
 <img src="./py39-dg.png" width="900">
+
+???
+
+Brian showed bash, I picked python3.9
 
 ---
 
@@ -134,6 +83,33 @@ class: center, middle
 <img src="./source-git-diagram.png" width="900">
 
 ---
+
+# CentOS Stream 9
+
+* src repositories will have upstream git history
+
+* Repositories will be the place to do downstream ~~development~~ integration
+
+* We hope that RHEL developers will use source-git repositories instead of dist-git
+
+---
+
+# CentOS Stream 8
+
+* Contributions going through Red Hat Bugzilla still.
+
+* src repositories are created from SRPMs
+
+* It’s hard to course-correct along the way.
+
+---
+
+# CentOS Stream 8 (src)
+
+<img src="el8-sg.png" width="640">
+
+---
+
 # Did anyone contribute already?
 
 * [glibc changes backport by H J](https://git.stg.centos.org/source-git/glibc/pull-request/1)
@@ -145,18 +121,11 @@ class: center, middle
 * [fixes for argument parsing for multiple dnf commands](https://git.centos.org/rpms/dnf/pull-request/1)
 * ...and many more
 
----
-# TL;DR
+???
 
-* “This is where we are right now”
+issues and PRs
 
-* We make sure CentOS Stream is as stable as possible.
-
-* Expect more news from us as things get finished.
-
-* We are thrilled about CentOS Stream 9.
-
-* You can maintain your own stack via SIGs.
+I am thankful for these contributions
 
 ---
 class: middle
