@@ -6,9 +6,13 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 
 ## 2021
-* DevConf.cz 2021, TBD
-* [Red Hat Internship Bootcamp- How to be a good developer 0.5.0](2021-how-to-be-a-good-dev-0.5.0/)
+* DevConf.cz 2021 talks done via google slides
+  * [Consuming CentOS Stream](https://devconfcz2021.sched.com/event/gmSG/consuming-centos-stream)
+  * [Packit: 2 years of upstream ⟷ downstream](https://devconfcz2021.sched.com/event/gmOX/packit-2-years-of-upstream-downstream)
+  * [Open Operations for Clouds and Services](https://devconfcz2021.sched.com/event/gmXX/open-operations-for-clouds-and-services)
+* [Red Hat Internship Bootcamp - How to be a good developer 0.5.0](2021-how-to-be-a-good-dev-0.5.0/)
 * [Everyone can contribute to RHEL now!](2021-everyone-can-contribute-to-rhel-now/)
+* [Žijeme IT](http://www.zijemeit.cz/workshop?programId=8) - [How to be a good developer 0.6.0](2021-how-to-be-a-good-dev-0.6.0/)
 
 ## 2020
 
