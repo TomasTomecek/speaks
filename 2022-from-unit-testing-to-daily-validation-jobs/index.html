@@ -17,6 +17,9 @@ class: center, middle
 
 ???
 * ping sgallagh, he wants to join :)
+* Intro: me
+* Intro: Packit = Upstream CI system for RPM-packaged projects; TF = testing backend
+* Fast presentation = let's discuss
 
 ---
 # Above the code
@@ -113,6 +116,7 @@ class TestLocalProject(PackitTest):
 ???
 * a minimal RPM-packaged upstream project
 * a functional, E2E place to test functionality for us
+* errors are in sentry.io
 
 ---
 # Daily validation jobs
@@ -122,10 +126,11 @@ class TestLocalProject(PackitTest):
 
 ???
 * Triggered every morning, as our breakfast
-* If they fail, we are notified in sentry
 * A script can rerun easily from a CLI
+* Putting it all together: sentry.io + E2E test cases + hello-world + stg
+* If they fail, we are notified in sentry
 * Both production and stg are validated
-* Fun story: we've hit an issue recently of the uppoer limit for the number of commits in a PR
+* Funny story: we've hit an issue recently of the uppoer limit for the number of commits in a PR
 
 ---
 class: middle
