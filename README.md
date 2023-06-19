@@ -4,6 +4,9 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 [Landing page](https://tomastomecek.github.io/speaks/)
 
+## 2023
+* [Inception - dev tips marketplace](2023-devconf-inception/)
+
 ## 2022
 * [From unit tests to daily validation jobs](2022-from-unit-testing-to-daily-validation-jobs/)
 
