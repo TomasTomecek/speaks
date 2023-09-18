@@ -8,8 +8,8 @@ h1, h2, h3, h4 {
 }
 .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 .remark-slide-content { font-size: 1.6em; }
-.remark-slide-content h1 { font-size: 2.4em; }
-.remark-slide-content h2 { font-size: 2.0em; }
+.remark-slide-content.first-slide h1 { font-size: 4em; }
+.remark-slide-content.first-slide h2 { font-size: 3em; }
 .remark-slide-content h3 { font-size: 1.6em; }
 .remark-slide-content h4 { font-size: 1.2em; }
 .remark-code { font-size: 0.977em; }
