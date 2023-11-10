@@ -7,6 +7,7 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 ## 2023
 * [Inception - dev tips marketplace](2023-devconf-inception/)
 * [ChatGPT - Fine-tune your prompts](2023-chatgpt-how-to/)
+* [Hi AI, why did my build fail?](2023-analyze-logs-with-llm/)
 
 ## 2022
 * [From unit tests to daily validation jobs](2022-from-unit-testing-to-daily-validation-jobs/)

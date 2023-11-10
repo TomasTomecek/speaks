@@ -18,6 +18,9 @@ h1, h2, h3, h4 {
 .remark-inline-code {
   background-color: #eee;
 }
+.background-black {
+  background-color: #000;
+}
 .small { font-size: 0.7em; }
 .columns-3-ul ul { columns: 3; }
 .left-column {float:left; width: 50%;}
@@ -30,4 +33,7 @@ blockquote {
 }
 .white {
   color: #fff;
+}
+.colossal h1 {
+  font-size: 5em;
 }

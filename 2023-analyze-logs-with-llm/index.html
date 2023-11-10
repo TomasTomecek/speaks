@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hi AI, why did my RPM build fail?</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="epic-stylez.css">
+    <script src="https://use.fontawesome.com/1a2bc43b60.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: right, bottom, white, first-slide, background-black
+background-image: url(title.png)
+background-size: contain
+
+# Hi AI, why did my (RPM) build fail?
+## Tomas Tomecek
+
+???
+
+
+
+---
+class: middle, white, colossal
+background-image: url(logs.png)
+background-size: contain
+# The problem
+
+???
+
+---
+class: middle, white
+background-image: url(chart.png)
+background-size: contain
+
+---
+class: middle, white, background-black
+background-image: url(frustrated-cat.png)
+background-size: contain
+# What can we do?
+
+<div class="footer small middle">
+  Picture prompt: "a cartoon picture of a small frustrated cat"
+</div>
+???
+
+If only there was a system that could read text, process it and provide sensible human feedback!
+
+---
+class: middle, white, background-black
+background-image: url(go-fail.png)
+background-size: contain
+.right-column[
+# PoC with GPT
+]
+
+---
+# GPT's answer
+
+```
+The root cause of the error is that there are undefined symbols in the source
+code of the podman package during the RPM build process. Specifically, the
+symbols portNum are undefined in the file pkg/specgen/generate/kube/kube.go.
+
+To fix this error, you need to address the undefined symbols. Here's the likely
+way to fix it:
+
+Locate the source code for the podman package, which should be available in a
+directory like /builddir/build/BUILD/podman-<version>.
+
+Open the file pkg/specgen/generate/kube/kube.go mentioned in the error log.
+
+Go to line 617, 619, and 621 in the file and check how the symbol portNum is
+being used. It seems that portNum is not defined in the current scope, which is
+causing the error.
+
+Find the correct definition or import statement for portNum and add it to the
+file kube.go. Make sure the definition or import statement is correct and
+compatible with the rest of the codebase...
+```
+---
+class: middle, white, background-black
+background-image: url(city-rain.png)
+background-size: contain
+# Today
+
+- Log Detective
+
+- Built a portal to gather data
+
+- Research of AI app architecture
+
+- Meeting other teams
+
+- Containers and RPMs
+
+---
+
+class: middle
+# The end
+
+.right-column[
+<img src="goodbye.png" width="480">
+]
+
+.left-column[
+* Art pictures created with [midjourney](https://www.midjourney.com/)
+
+* <span class="fa fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa fa-globe"></span> [@TomasTomec@fosstodon.org](https://fosstodon.org/@TomasTomec)
+
+<div class="footer small middle">
+  Picture prompt: "a picture of a cat that waves goodbye"
+</div>
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
