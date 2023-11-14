@@ -61,3 +61,6 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 ## 2014
 
 * [OpenAlt - Show me your command line](https://github.com/TomasTomecek/openalt-2014-cli)
+
+
+Thanks remarkjs and fontawesome!!
