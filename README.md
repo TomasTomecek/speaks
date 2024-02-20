@@ -4,6 +4,9 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 [Landing page](https://tomastomecek.github.io/speaks/)
 
+## 2024
+* [`kubectl explain engineering-roles`](2024-describe-engineering-roles/)
+
 ## 2023
 * [Inception - dev tips marketplace](2023-devconf-inception/)
 * [ChatGPT - Fine-tune your prompts](2023-chatgpt-how-to/)
