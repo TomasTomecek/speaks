@@ -4,6 +4,9 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 [Landing page](https://tomastomecek.github.io/speaks/)
 
+## 2025
+* [`RamaLama talk for Red Hat Czech Open House`](2025-ramalama/)
+
 ## 2024
 * [`kubectl explain engineering-roles`](2024-describe-engineering-roles/)
 

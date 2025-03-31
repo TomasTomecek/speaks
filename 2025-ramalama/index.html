@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deploying Open Source AI models with IBM's granite and RamaLama</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="epic-stylez.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/brands.min.css">
+    <link rel="stylesheet" href="assets/css/solid.min.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: left, bottom, black, first-slide, background-white
+background-image: url(intro.png)
+background-size: contain
+
+# Deploying Open Source AI models with IBM's granite and RamaLama
+## Tomas Tomecek
+
+---
+
+# `/who "Tomáš Tomeček"`
+
+.left-column[
+* Sr. Principal Software Engineer @ Red Hat
+
+* Log Detective - analyze logs with LLMs
+
+* Teaching git at FI MUNI
+
+* Automation, python, integration, RPMs, LLMs, DevConf.cz
+
+]
+
+.right-column[
+<img src="./tomas.jpg" width="320">
+]
+
+---
+class: middle, white, center
+<img alt="RamaLama" src="ramalama.png">
+
+???
+
+---
+
+# Architecture
+
+<img alt="RamaLama architecture" src="architecture.png">
+
+???
+
+---
+
+# Granite 3.2 8B
+
+.right-column[
+<img alt="Granite card at HF" src="granite-hf.png" width="480">
+]
+
+.left-column[
+* Thinking
+* Summarization
+* Text classification
+* Text extraction
+* Question-answering
+* Retrieval Augmented Generation (RAG)
+* Code related tasks
+* Function-calling tasks
+* Multilingual dialog use cases
+* Long-context tasks
+]
+
+???
+
+---
+
+class: middle
+# The end
+
+.right-column[
+<img alt="image of a cat waving goodbye" src="goodbye_drawing.png" width="480">
+]
+
+.left-column[
+* <span class="fa-regular fa-envelope"></span> `Tomas Tomecek <ttomecek@redhat.com>`
+
+* <span class="fa-brands fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa-brands fa-mastodon"></span> [@TomasTomec@fosstodon.org](https://fosstodon.org/@TomasTomec)
+]
+
+* Sources: https://ramalama.ai/
+
+.small[
+Picture of this cat created with DALL-E.
+]
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+    <script src="assets/js/brands.min.js"></script>
+    <script src="assets/js/solid.min.js"></script>
+    <script src="assets/js/fontawesome.min.js"></script>
+  </body>
+</html>
