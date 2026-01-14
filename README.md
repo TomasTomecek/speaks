@@ -4,6 +4,9 @@ This repository contains slides for my talks. Formerly I used to do one repo per
 
 [Landing page](https://tomastomecek.github.io/speaks/)
 
+## 2026
+* [`Claude Code beyond the default shell`](2026-claude-code/)
+
 ## 2025
 * [`RamaLama talk for Red Hat Czech Open House`](2025-ramalama/)
 

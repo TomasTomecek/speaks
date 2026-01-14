@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Claude Code beyond the default shell</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="epic-stylez.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/brands.min.css">
+    <link rel="stylesheet" href="assets/css/solid.min.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: left, bottom, white, first-slide, background-black
+
+# Claude Code beyond the default shell
+## Tomas Tomecek
+
+---
+class: middle, center, white, background-black
+<img alt="Claude Code" src="cc.png">
+---
+class: white, background-black
+# Installation
+
+* Developer Toolbox: https://redhat.gitlab.io/rhel/tools/rhel-developer-toolbox/modules/claude_code.html
+
+* Official Red Hat guide: https://source.redhat.com/departments/it/itx/document_management_and_collaboration/dmc_wiki/claude_code_user_guide
+
+---
+class: middle, center, white, background-black
+<img alt="Claude Code" src="cc-this-repo.png">
+---
+
+# Slash commands
+
+Built-in shortcuts for common tasks:
+
+* `/status` - This one's clear
+* `/context` - How is LLM context occupied for this session?
+* `/cost` - How much did the current session cost and which models were used?
+* `/plan` - Enable planning mode or show the plan
+* `/rewind` - Go back to a previous checkpoint
+
+Try: Type `/` to see available commands
+
+???
+
+- "Saved prompts"
+
+---
+class: middle, center, white, background-black
+<img alt="Claude Code Command" src="cc_command_release.png">
+---
+class: center, white, middle, background-black
+# Ask Claude Code to help you
+---
+class: middle, center, white, background-black
+<img alt="Claude Code Command" src="cc_prompt.png">
+---
+class: middle, center, white, background-black
+<img alt="Claude Code Command" src="cc_packit_release.png">
+---
+class: middle, white, background-black
+      <code><pre>
+.
+├── .claude
+│   └── commands
+│       ├── packit-release.md
+│       └── review-text.md
+      </code></pre>
+---
+class: middle, center, white, background-black
+# Skills & Plugins
+---
+# CoreOS, OpenShift, TF commands
+- https://github.com/openshift-eng/ai-helpers
+- https://github.com/coreos/ai-helpers
+- https://gitlab.com/testing-farm/ai-helpers
+???
+- call for action
+---
+class: middle, center, white, background-black
+# Create a Claude Code command that will change diapers of my kid.
+<img alt="Claude Code Command" src="cc_diapers.png">
+---
+class: middle
+# The end
+
+.right-column[
+<img alt="image of a cat waving goodbye" src="goodbye_drawing_2026_banana.png" width="480">
+]
+
+.left-column[
+* <span class="fa-brands fa-youtube"></span> [Claude Code deepdive by the creator](https://www.youtube.com/watch?v=6eBSHbLKuN0)
+
+* <span class="fa-regular fa-envelope"></span> `Tomas Tomecek <ttomecek@redhat.com>`
+
+* <span class="fa-brands fa-github-square"></span> [github.com/TomasTomecek/speaks](https://github.com/TomasTomecek/speaks)
+
+* <span class="fa-brands fa-mastodon"></span> [@TomasTomec@fosstodon.org](https://fosstodon.org/@TomasTomec)
+]
+
+.small[
+Picture generated with Nano Banana Pro.
+]
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLines: true
+      });
+    </script>
+    <script src="assets/js/brands.min.js"></script>
+    <script src="assets/js/solid.min.js"></script>
+    <script src="assets/js/fontawesome.min.js"></script>
+  </body>
+</html>
